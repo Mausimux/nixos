@@ -24,19 +24,22 @@ environment.systemPackages = with pkgs; [
 
 	# Authentification Agent
 	hyprpolkitagent
-
-	# Version control
-	git
 ];
 
-programs.neovim = {
-	enable = true;
-	defaultEditor = true;
-	configure = {
-		customRC = ''
-			set tabstop=2
-		'';
+programs = {
+	git = {
+		enable = true;
 	};
+	neovim = {
+		enable = true;
+		defaultEditor = true;
+		configure = {
+			customRC = ''
+				set shiftwidth=2
+				set tabstop=2
+			'';
+		};
+	};			
 };
 
 }
