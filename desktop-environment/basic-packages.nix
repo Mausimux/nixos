@@ -23,7 +23,12 @@ environment.systemPackages = with pkgs; [
 	hyprpolkitagent
 ];
 
+users.defaultUserShell = pkgs.zsh;
+
 programs = {
+	zsh = {
+		enable = true;
+	};
 	git = {
 		enable = true;
 	};
