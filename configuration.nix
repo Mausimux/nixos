@@ -72,6 +72,8 @@ system.autoUpgrade = {
 	dates = "daily";
 };
 
+boot.kernelPackages = pkgs.linuxPackages_latest;
+
 hardware.enableAllFirmware = true;
 
 # Some programs need SUID wrappers, can be configured further or are
