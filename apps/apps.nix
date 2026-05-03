@@ -11,8 +11,13 @@ environment.systemPackages = with pkgs; [
 	syncplay
 	prismlauncher
 	code-cursor
-	obs-studio
 	xivlauncher
 ];
+
+programs = {
+	obs-studio = {
+		enable = true;
+	};
+};
 
 }
