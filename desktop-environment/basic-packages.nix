@@ -45,6 +45,9 @@ programs = {
 
 				set number
 				set relativenumber
+
+				set list
+				set listchars=tab:>\ ,multispace:·,lead:·,trail:·,nbsp:+
 			'';
 		};
 	};			
