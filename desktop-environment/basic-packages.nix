@@ -42,6 +42,9 @@ programs = {
 			customRC = ''
 				set shiftwidth=2
 				set tabstop=2
+
+				set number
+				set relativenumber
 			'';
 		};
 	};			
