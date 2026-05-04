@@ -15,3 +15,5 @@ vim.opt.listchars = {
 	trail = "·",
 	nbsp = "+",
 }
+
+vim.opt.clipboard = "unnamedplus"

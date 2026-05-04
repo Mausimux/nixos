@@ -21,6 +21,10 @@ environment.systemPackages = with pkgs; [
 
 	# Authentification Agent
 	hyprpolkitagent
+
+	# Clipboard
+	wl-clipboard
+	cliphist
 ];
 
 users.defaultUserShell = pkgs.zsh;
