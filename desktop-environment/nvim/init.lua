@@ -32,3 +32,6 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
 
 -- Highlight the line the cursor is on
 vim.opt.cursorline = true
+
+-- Enabling undo/redo even after reopening
+vim.opt.undofile = true
