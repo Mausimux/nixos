@@ -35,3 +35,6 @@ vim.opt.cursorline = true
 
 -- Enabling undo/redo even after reopening
 vim.opt.undofile = true
+
+-- Confirm dialog for unsaved changes
+vim.opt.confirm = true
