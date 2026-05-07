@@ -41,3 +41,14 @@ vim.opt.confirm = true
 
 -- Clear search highlights
 vim.keymap.set("n", "<Esc>", '<cmd>nohlsearch<CR>')
+
+-- Plugin helpers
+
+local gh = function(repo) return 'https://github.com/' .. repo end
+
+local plugin = function(spec)
+	vim.pack.add{
+		spec
+	}
+	return require(spec.name)
+end
