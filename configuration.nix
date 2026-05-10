@@ -10,7 +10,7 @@ imports = [
 	./hardware-configuration.nix
 	./desktop-environment/desktop-environment.nix
 	./apps/apps.nix
-	(import ./hjem/module.nix)
+	./hjem.nix
 ];
 
 # Bootloader.
