@@ -1,28 +1,34 @@
-{ config, lib, pkgs, ... }: let
-	nvimSrc =./nvim;
-	nvimDst = ".config/nvim/";
+{ config, lib, pkgs, ... }:
 
-	nvimRecursiveFiles = lib.filesystem.listFilesRecursive nvimSrc;
+let
 
-	nvimRecursiveFilesNoGit = builtins.filter (file:
-		!(lib.strings.hasInfix "/.git/" (toString file))
-	) nvimRecursiveFiles;
+nvimSrc =./nvim;
+nvimDst = ".config/nvim/";
 
-	nvimHjemUsersFiles = builtins.listToAttrs (map (file:
-		let relativePath = lib.strings.removePrefix (toString nvimSrc + "/") (toString file);
-		in {
-			name = nvimDst + relativePath;
-			value = { source = file; };
-		}
-	) nvimRecursiveFilesNoGit);
-in {
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		viAlias = true;
-		vimAlias = true;
-	};
+nvimFiles = builtins.filter (file:
+	!(lib.strings.hasInfix "/.git/" (toString file))
+) (lib.filesystem.listFilesRecursive nvimSrc);
 
-	hjem.users.maxi.files = nvimHjemUsersFiles;
-	hjem.users.root.files = nvimHjemUsersFiles;
+hjemNvimUsersFiles = builtins.listToAttrs (map (file:
+	let relativePath = lib.strings.removePrefix (toString nvimSrc + "/") (toString file);
+	in {
+		name = nvimDst + relativePath;
+		value = { source = file; };
+	}
+) nvimFiles);
+
+in
+
+{
+
+programs.neovim = {
+	enable = true;
+	defaultEditor = true;
+	viAlias = true;
+	vimAlias = true;
+};
+
+hjem.users.maxi.files = hjemNvimUsersFiles;
+hjem.users.root.files = hjemNvimUsersFiles;
+
 }

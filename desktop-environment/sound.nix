@@ -1,13 +1,10 @@
 {config, lib, pkgs, ...}:
+
 {
 
-# Realtime scheduler (useful for Pipewire performance)
 security.rtkit.enable = true;
-
 services.pipewire = {
 	enable = true;
-
-	# Load the echo cancellation module
 	extraConfig.pipewire."99-echo-cancel" = {
 		"context.modules" = [
 			{
