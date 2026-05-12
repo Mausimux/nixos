@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let nvim = (toString ./nvim);
-in {
+{
 
 programs.neovim = {
 	enable = true;
@@ -10,7 +9,7 @@ programs.neovim = {
 	vimAlias = true;
 };
 
-hjem.users.root.files.".config/nvim".source = nvim;
-hjem.users.maxi.files.".config/nvim".source = nvim;
+hjem.users.root.files.".config/nvim".source = "/home/maxi/.config/nvim";
+hjem.users.root.files.".local/share/nvim".source = "/home/maxi/.local/share/nvim";
 
 }
