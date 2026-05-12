@@ -20,9 +20,6 @@ environment.systemPackages = with pkgs; [
 	# Screenshots
 	hyprshot
 
-	# File manager
-	nautilus
-
 	# Authentification Agent
 	hyprpolkitagent
 
@@ -41,6 +38,9 @@ programs = {
 		enable = true;
 	};
 	waybar = {
+		enable = true;
+	};
+	yazi = {
 		enable = true;
 	};
 };
