@@ -20,24 +20,6 @@ boot.loader.efi.canTouchEfiVariables = true;
 
 nixpkgs.config.allowUnfree = true;
 
-nix = {
-	gc = {
-		automatic = true;
-		dates = [ "weekly" ];
-		options = "--delete-older-than 14d";
-	};
-	optimise = {
-		automatic = true;
-		dates = [ "weekly" ];
-	};
-};
-
-system.autoUpgrade = {
-	enable = true;
-	allowReboot = true;
-	dates = "daily";
-};
-
 boot.kernelPackages = pkgs.linuxPackages_latest;
 
 hardware.enableAllFirmware = true;
