@@ -4,7 +4,7 @@
 
 environment.systemPackages = with pkgs; [
 	# Terminal emulator
-	ghostty
+	kitty
 	
 	# Notifications
 	mako
