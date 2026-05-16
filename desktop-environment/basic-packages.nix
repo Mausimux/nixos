@@ -24,12 +24,7 @@ environment.systemPackages = with pkgs; [
 	cliphist
 ];
 
-users.defaultUserShell = pkgs.zsh;
-
 programs = {
-	zsh = {
-		enable = true;
-	};
 	git = {
 		enable = true;
 	};
