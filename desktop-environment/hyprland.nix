@@ -1,7 +1,11 @@
-{ ... }:
+{ pkgs, ... }: let
 
-{
+hyprLuaStubsSubpath = "share/hypr/stubs";
 
-programs.hyprland.enable = true;
+in {
+
+  programs.hyprland.enable = true;
+
+  hjem.users.maxi.files.".local/${hyprLuaStubsSubpath}".source = "${pkgs.hyprland}/${hyprLuaStubsSubpath}";
 
 }
