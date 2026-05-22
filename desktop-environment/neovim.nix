@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
 
@@ -8,6 +8,11 @@ programs.neovim = {
 	viAlias = true;
 	vimAlias = true;
 };
+
+environment.systemPackages = with pkgs; [
+	ripgrep
+	fd
+];
 
 programs.nix-ld.enable = true; # Something about neovim mason/lsp plugins not working
 
