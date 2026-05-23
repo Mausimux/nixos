@@ -10,9 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, ... }: let
+		hostname = "nixos";
+	in {
     # NOTE: 'nixos' is the default hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+			specialArgs = {
+				inherit hostname;
+			};
       modules = [
 				./configuration.nix
 				inputs.hjem.nixosModules.default

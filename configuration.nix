@@ -1,4 +1,4 @@
-{ lib, ... }: let
+{ lib, hostname, ... }: let
 
 currentDir = ./.;
 
@@ -21,6 +21,8 @@ nix.settings.experimental-features = [
 	"nix-command"
 	"flakes"
 ];
+
+networking.hostName = hostname;
 
 hardware.enableAllFirmware = true;
 
