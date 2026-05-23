@@ -37,6 +37,9 @@ programs = {
 			"--cmd cd"
 		];
 	};
+	direnv = {
+		enable = true;
+	};
 };
 
 }
