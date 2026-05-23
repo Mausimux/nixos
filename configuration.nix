@@ -5,7 +5,7 @@ currentDir = ./.;
 directoryContents = builtins.readDir currentDir;
 
 filtered = lib.filterAttrs (name: type:
-	(lib.hasSuffix ".nix" name && name != "default.nix" && name != "configuration.nix")
+	(lib.hasSuffix ".nix" name && name != "default.nix" && name != "configuration.nix" && name != "flake.nix")
 	|| (type == "directory" && builtins.pathExists ( currentDir + "/${name}/default.nix"))
 ) directoryContents;
 
@@ -16,6 +16,11 @@ in {
 inherit imports;
 
 nixpkgs.config.allowUnfree = true;
+
+nix.settings.experimental-features = [
+	"nix-command"
+	"flakes"
+];
 
 hardware.enableAllFirmware = true;
 
