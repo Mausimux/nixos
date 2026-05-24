@@ -12,11 +12,27 @@
   };
   outputs = inputs@{ self, nixpkgs, ... }: let
 		hostname = "nixos";
+
+		lib = nixpkgs.lib;
+
+		autoImportDiscovery = path: { exclude ? [ "default.nix" ] }: let
+
+			directoryContents = builtins.readDir path;
+
+			filtered = lib.filterAttrs (name: type:
+				(lib.hasSuffix ".nix" name && !(builtins.elem name exclude))
+				|| (type == "directory" && builtins.pathExists (path + "/${name}/default.nix"))
+			) directoryContents;
+
+			imports = lib.mapAttrsToList (name: _: path + "/${name}") filtered;
+
+		in { inherit imports; };
 	in {
     # NOTE: 'nixos' is the default hostname
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
 			specialArgs = {
 				inherit hostname;
+				inherit autoImportDiscovery;
 			};
       modules = [
 				./configuration.nix
