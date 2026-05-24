@@ -1,25 +1,12 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
 
 environment.systemPackages = with pkgs; [
-	# Terminal emulator
 	kitty
-	
-	# Notifications
 	mako
 	libnotify
-	
-	# Application launcher
 	rofi
-
-	# Screenshots
 	hyprshot
-
-	# Authentification Agent
 	hyprpolkitagent
-
-	# Clipboard
 	wl-clipboard
 	cliphist
 ];

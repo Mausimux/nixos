@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
 
 programs.neovim = {
 	enable = true;
@@ -14,7 +12,7 @@ environment.systemPackages = with pkgs; [
 	fd
 ];
 
-programs.nix-ld.enable = true; # Something about neovim mason/lsp plugins not working
+programs.nix-ld.enable = true;
 
 hjem.users.root.files.".config/nvim".source = "/home/maxi/.config/nvim";
 hjem.users.root.files.".local/share/nvim".source = "/home/maxi/.local/share/nvim";
