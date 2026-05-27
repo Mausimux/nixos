@@ -9,6 +9,7 @@ environment.systemPackages = with pkgs; [
 	hyprpolkitagent
 	wl-clipboard
 	cliphist
+	hyprsunset
 ];
 
 programs = {
