@@ -14,6 +14,7 @@
 		hostname = "nixos";
 
 		lib = nixpkgs.lib;
+		forAllSystems = lib.genAttrs lib.systems.flakeExposed;
 
 		autoImportDiscovery = path: { exclude ? [ "default.nix" ] }: let
 
@@ -28,6 +29,17 @@
 
 		in { inherit imports; };
 	in {
+		devShells = forAllSystems (system: let
+			pkgs = nixpkgs.legacyPackages.${system};
+		in {
+			default = pkgs.mkShell {
+				packages = with pkgs; [
+					nil
+					nixd
+				];
+			};
+		});
+
 		# NOTE: 'nixos' is the default hostname
 		nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
 			specialArgs = {
