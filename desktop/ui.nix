@@ -6,7 +6,6 @@ environment.systemPackages = with pkgs; [
 	libnotify
 	rofi
 	hyprshot
-	hyprpolkitagent
 	wl-clipboard
 	cliphist
 	hyprsunset
