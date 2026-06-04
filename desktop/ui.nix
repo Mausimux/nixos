@@ -13,9 +13,6 @@ environment.systemPackages = with pkgs; [
 ];
 
 programs = {
-	waybar = {
-		enable = true;
-	};
 	yazi = {
 		enable = true;
 	};
