@@ -15,4 +15,16 @@ programs.git = {
 	};
 };
 
+environment.shellAliases = {
+	g = "git";
+	gs = "git status";
+	ga = "git add";
+	gr = "git restore";
+	gd = "git diff HEAD";
+	gc = "git commit -v";
+	gp = "git push";
+	gl = "git log";
+	gw = "git show";
+};
+
 }
