@@ -2,9 +2,8 @@
 
 environment.systemPackages = with pkgs; [
 	kitty
+	zellij
 ];
-
-programs.tmux.enable = true;
 
 environment.shellAliases = {
 	nr = "sudo nixos-rebuild switch";
