@@ -12,6 +12,10 @@ environment.systemPackages = with pkgs; [
 	fd
 ];
 
+environment.variables = {
+	MANPAGER = "nvim +Man!";
+};
+
 hjem.users.root.files.".config/nvim".source = "/home/maxi/.config/nvim";
 hjem.users.root.files.".local/share/nvim".source = "/home/maxi/.local/share/nvim";
 
