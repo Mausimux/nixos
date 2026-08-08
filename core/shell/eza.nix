@@ -1,5 +1,5 @@
 { pkgs, ... }: let
-	lsArgs = "--long --all --git --icons --no-permissions --no-user --no-time --no-filesize --ignore-glob=\".git|.direnv\"";
+	lsArgs = "--long --all --git --icons --no-permissions --no-user --no-time --no-filesize --ignore-glob=\".git|.direnv\" --hyperlink auto";
 in {
 
 environment.systemPackages = with pkgs; [
