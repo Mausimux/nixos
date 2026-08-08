@@ -3,15 +3,10 @@
 in {
 
 environment.systemPackages = with pkgs; [
-	kitty
-	zellij
 	eza
 ];
 
 environment.shellAliases = {
-	nr = "sudo nixos-rebuild switch";
-	ns = "nix shell";
-
 	ls = "eza ${lsArgs}";
 	l = "eza ${lsArgs}";
 	ll = "eza ${lsArgs}";
