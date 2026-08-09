@@ -501,7 +501,8 @@
         "hjem": "hjem",
         "hyprland": "hyprland",
         "millennium": "millennium",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "zoxide-nixpkgs": "zoxide-nixpkgs"
       }
     },
     "systems": {
@@ -557,6 +558,22 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "zoxide-nixpkgs": {
+      "locked": {
+        "lastModified": 1785394707,
+        "narHash": "sha256-1blLG6HAdFNprrwREjn3lFEP3H5nl3fcCsPCtfLED1k=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "eeff0f83b4c4a2ee29284bde2bee28f3c7e39c0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "refs/pull/547322/head",
+        "repo": "nixpkgs",
         "type": "github"
       }
     }

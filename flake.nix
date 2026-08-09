@@ -11,6 +11,9 @@
 		};
 		hyprland.url = "github:hyprwm/Hyprland";
 		millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+		# Temporary nixpkgs pin for zoxide module mkAfter fix.
+		# Remove once https://github.com/NixOS/nixpkgs/pull/547322 merges.
+		zoxide-nixpkgs.url = "github:NixOS/nixpkgs?ref=refs/pull/547322/head";
 	};
 	outputs = inputs@{ nixpkgs, ... }: let
 		hostname = "nixos";
@@ -40,6 +43,10 @@
 			modules = [
 				./configuration.nix
 				inputs.hjem.nixosModules.default
+				{
+					disabledModules = [ "programs/zoxide.nix" ];
+				}
+				"${inputs.zoxide-nixpkgs}/nixos/modules/programs/zoxide.nix"
 			];
 		};
 	};
