@@ -11,6 +11,7 @@ programs.git = {
 		alias = {
 			dshow = "show --ext-diff";
 			dlog = "log -p --ext-diff";
+			graph = "log --graph HEAD --branches --remotes --tags --no-show-signature --pretty=format:'%C(auto)%h%d %s %Cblue[%an, %ar]%Creset'";
 		};
 	};
 };
