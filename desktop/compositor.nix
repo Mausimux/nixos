@@ -16,6 +16,10 @@ programs.hyprland = {
 	portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 };
 
+environment.systemPackages = [
+	pkgs.hyprshutdown
+];
+
 hjem.users.maxi.files.".local/${hyprLuaStubsSubpath}".source = "${pkgs.hyprland}/${hyprLuaStubsSubpath}";
 
 services.displayManager = {
