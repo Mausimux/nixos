@@ -24,10 +24,7 @@ hjem.users.maxi.files.".local/${hyprLuaStubsSubpath}".source = "${pkgs.hyprland}
 
 services.displayManager = {
 	defaultSession = "hyprland";
-	sddm = {
-		enable = true;
-		wayland.enable = true;
-	};
+	ly.enable = true;
 };
 
 services.udev.extraRules = ''
