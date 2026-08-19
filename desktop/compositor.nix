@@ -1,8 +1,4 @@
-{ inputs, pkgs, ... }: let
-
-hyprLuaStubsSubpath = "share/hypr/stubs";
-
-in {
+{ inputs, pkgs, ... }: {
 
 nix.settings = {
 	substituters = ["https://hyprland.cachix.org"];
@@ -19,8 +15,6 @@ programs.hyprland = {
 environment.systemPackages = [
 	pkgs.hyprshutdown
 ];
-
-hjem.users.maxi.files.".local/${hyprLuaStubsSubpath}".source = "${pkgs.hyprland}/${hyprLuaStubsSubpath}";
 
 services.displayManager = {
 	defaultSession = "hyprland";
