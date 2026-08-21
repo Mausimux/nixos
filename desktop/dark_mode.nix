@@ -1,11 +1,15 @@
-{ ... }: {
+{ pkgs, ... }: {
+
+environment.systemPackages = with pkgs; [
+	qt6Packages.qt6ct
+];
 
 programs.dconf.profiles.user.databases = [
 	{
 		settings = {
 			"org/gnome/desktop/interface" = {
 				color-scheme = "prefer-dark";
-				gtk-theme = "Adwaita-dark";
+				# gtk-theme = "Adwaita-dark";
 			};
 		};
 	}
@@ -13,7 +17,8 @@ programs.dconf.profiles.user.databases = [
 
 qt = {
 	enable = true;
-	style = "adwaita-dark";
 };
+
+environment.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
 
 }
