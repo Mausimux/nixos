@@ -1,7 +1,7 @@
 { ... }: {
 
 environment.shellAliases = {
-	rebuild = "sudo nixos-rebuild switch";
+	rebuild = "nh os switch";
 	shell = "nix shell";
 };
 
