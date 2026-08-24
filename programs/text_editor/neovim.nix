@@ -16,7 +16,7 @@ environment.variables = {
 	MANPAGER = "nvim +Man!";
 };
 
-hjem.users.root.files.".config/nvim".source = "/home/maxi/.config/nvim";
-hjem.users.root.files.".local/share/nvim".source = "/home/maxi/.local/share/nvim";
+hjem.users.root.files.".config/nvim".source = "/home/mausi/.config/nvim";
+hjem.users.root.files.".local/share/nvim".source = "/home/mausi/.local/share/nvim";
 
 }

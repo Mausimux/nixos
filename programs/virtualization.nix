@@ -2,6 +2,6 @@
 
 virtualisation.libvirtd.enable = true;
 programs.virt-manager.enable = true;
-users.users.maxi.extraGroups = [ "libvirtd" ];
+users.users.mausi.extraGroups = [ "libvirtd" ];
 
 }
