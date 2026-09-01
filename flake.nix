@@ -7,7 +7,6 @@
 		};
 		hyprland.url = "github:hyprwm/Hyprland";
 		millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-		zed.url = "github:zed-industries/zed";
 	};
 	outputs = inputs@{ nixpkgs, ... }: let
 		hostname = "nixos";
