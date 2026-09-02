@@ -9,6 +9,11 @@ programs.nvf = {
                 vim = {
                         viAlias = true;
                         vimAlias = true;
+                        theme = {
+                                enable = true;
+                                name = "oxocarbon";
+                                style = "dark";
+                        };
                 };
         };
 };
