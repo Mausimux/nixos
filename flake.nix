@@ -7,6 +7,10 @@
 		};
 		hyprland.url = "github:hyprwm/Hyprland";
 		millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+		nvf = {
+                        url = "github:notashelf/nvf";
+                        inputs.nixpkgs.follows = "nixpkgs";
+                };
 	};
 	outputs = inputs@{ nixpkgs, ... }: let
 		hostname = "nixos";
