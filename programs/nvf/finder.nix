@@ -1,7 +1,7 @@
 {
 
-programs.nvf.settings.vim = {
-        telescope.enable = true;
-};
+  programs.nvf.settings.vim = {
+    telescope.enable = true;
+  };
 
 }
