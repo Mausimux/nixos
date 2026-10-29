@@ -7,14 +7,7 @@
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.xdph.follows = "xdph";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    xdph = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hyprland-protocols.follows = "hyprland/hyprland-protocols";
     };
     millennium = {
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
