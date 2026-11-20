@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    bat
-  ];
+	environment.systemPackages = with pkgs; [
+		bat
+	];
 
-  environment.shellAliases = {
-    cat = "bat --paging=never";
-  };
+	environment.shellAliases = {
+		cat = "bat --paging=never";
+	};
 }

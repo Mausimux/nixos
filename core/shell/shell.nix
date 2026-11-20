@@ -1,10 +1,10 @@
 {pkgs, ...}: {
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
+	programs.fish = {
+		enable = true;
+		interactiveShellInit = ''
       		set fish_greeting # Disable greeting
     '';
-  };
+	};
 
-  users.defaultUserShell = pkgs.fish;
+	users.defaultUserShell = pkgs.fish;
 }

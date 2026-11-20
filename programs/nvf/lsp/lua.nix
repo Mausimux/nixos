@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim = {
-    languages.lua.enable = true;
-  };
+	programs.nvf.settings.vim = {
+		languages.lua.enable = true;
+	};
 }

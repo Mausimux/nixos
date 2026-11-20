@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim = {
-    binds.whichKey.enable = true;
-  };
+	programs.nvf.settings.vim = {
+		binds.whichKey.enable = true;
+	};
 }

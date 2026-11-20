@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim = {
-    languages.rust.enable = true;
-  };
+	programs.nvf.settings.vim = {
+		languages.rust.enable = true;
+	};
 }
