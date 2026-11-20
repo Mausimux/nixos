@@ -1,6 +1,6 @@
 {pkgs, ...}: {
-	environment.systemPackages = with pkgs; [
-		qt6Packages.qt6ct
+	environment.systemPackages = with pkgs.qt6Packages; [
+		qt6ct
 	];
 
 	programs.dconf.profiles.user.databases = [
@@ -14,9 +14,7 @@
 		}
 	];
 
-	qt = {
-		enable = true;
-	};
+	qt.enable = true;
 
 	environment.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
 }
