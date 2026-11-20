@@ -1,5 +1,4 @@
-{ lib, ... }: {
-
+{lib, ...}: {
   programs.nvf.settings.vim = {
     clipboard = {
       enable = true;
@@ -7,12 +6,11 @@
     };
     autocmds = [
       {
-        event = [ "TextYankPost" ];
+        event = ["TextYankPost"];
         callback = lib.generators.mkLuaInline ''
           function() vim.hl.on_yank() end
         '';
       }
     ];
   };
-
 }

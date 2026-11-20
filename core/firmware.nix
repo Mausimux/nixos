@@ -1,5 +1,3 @@
-{ ... }: {
-
-hardware.enableAllFirmware = true;
-
+{...}: {
+  hardware.enableAllFirmware = true;
 }

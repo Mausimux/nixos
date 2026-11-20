@@ -1,5 +1,4 @@
 {
-
   programs.nvf.settings.vim = {
     theme = {
       enable = true;
@@ -7,5 +6,4 @@
       style = "dark";
     };
   };
-
 }

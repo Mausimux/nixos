@@ -1,5 +1,4 @@
 {
-
   programs.nvf.settings.vim = {
     options = {
       tabstop = 4;
@@ -15,5 +14,4 @@
       };
     };
   };
-
 }

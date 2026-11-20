@@ -1,1 +1,1 @@
-{ autoImportDiscovery, ... }: autoImportDiscovery ./. { }
+{autoImportDiscovery, ...}: autoImportDiscovery ./. {}

@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-
-environment.systemPackages = with pkgs; [
-	brave-origin
-];
-
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    brave-origin
+  ];
 }

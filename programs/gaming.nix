@@ -1,6 +1,9 @@
-{ inputs, pkgs, ... }: {
-
-  nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nixpkgs.overlays = [inputs.millennium.overlays.default];
 
   programs.steam = {
     enable = true;
@@ -15,5 +18,4 @@
     prismlauncher
     r2modman
   ];
-
 }

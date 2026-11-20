@@ -1,28 +1,30 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
 
-nix.settings = {
-	substituters = ["https://hyprland.cachix.org"];
-	trusted-substituters = ["https://hyprland.cachix.org"];
-	trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-};
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
-programs.hyprland = {
-	enable = true;
-	package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-	portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-};
+  environment.systemPackages = [
+    pkgs.hyprshutdown
+  ];
 
-environment.systemPackages = [
-	pkgs.hyprshutdown
-];
+  services.displayManager = {
+    defaultSession = "hyprland";
+    ly.enable = true;
+  };
 
-services.displayManager = {
-	defaultSession = "hyprland";
-	ly.enable = true;
-};
-
-services.udev.extraRules = ''
-	SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0353", ENV{ID_INPUT_JOYSTICK}="0"
-'';
-
+  services.udev.extraRules = ''
+    	SUBSYSTEM=="input", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0353", ENV{ID_INPUT_JOYSTICK}="0"
+  '';
 }

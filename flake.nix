@@ -18,46 +18,38 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs =
-    inputs@{ nixpkgs, ... }:
-    let
-      hostname = "nixos";
+  outputs = inputs @ {nixpkgs, ...}: let
+    hostname = "nixos";
 
-      lib = nixpkgs.lib;
+    lib = nixpkgs.lib;
 
-      autoImportDiscovery =
-        path:
-        {
-          exclude ? [ "default.nix" ],
-        }:
-        let
+    autoImportDiscovery = path: {exclude ? ["default.nix"]}: let
+      directoryContents = builtins.readDir path;
 
-          directoryContents = builtins.readDir path;
-
-          filtered = lib.filterAttrs (
-            name: type:
+      filtered =
+        lib.filterAttrs (
+          name: type:
             (lib.hasSuffix ".nix" name && !(builtins.elem name exclude))
             || (type == "directory" && builtins.pathExists (path + "/${name}/default.nix"))
-          ) directoryContents;
+        )
+        directoryContents;
 
-          imports = lib.mapAttrsToList (name: _: path + "/${name}") filtered;
-
-        in
-        {
-          inherit imports;
-        };
-    in
-    {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit hostname;
-          inherit autoImportDiscovery;
-        };
-        modules = [
-          ./configuration.nix
-          inputs.hjem.nixosModules.default
-        ];
-      };
+      imports = lib.mapAttrsToList (name: _: path + "/${name}") filtered;
+    in {
+      inherit imports;
     };
+  in {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs;
+        inherit hostname;
+        inherit autoImportDiscovery;
+      };
+      modules = [
+        ./configuration.nix
+        inputs.hjem.nixosModules.default
+      ];
+    };
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }

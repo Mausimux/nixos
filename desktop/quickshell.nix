@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-
-environment.systemPackages = with pkgs; [
-	quickshell
-];
-
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    quickshell
+  ];
 }
