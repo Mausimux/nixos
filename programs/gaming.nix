@@ -16,6 +16,5 @@
 	environment.systemPackages = with pkgs; [
 		mangohud
 		prismlauncher
-		r2modman
 	];
 }
